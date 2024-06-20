@@ -1,0 +1,21 @@
+{
+    "name": "server",
+    "version": "1.0.0",
+    "description": "Node.js, Express, and MongoDB REST CRUD API",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "config": "^3.3.11",
+        "cors": "^2.8.5",
+        "express": "^4.19.2",
+        "mongodb": "^6.3.0",
+        "mongoose": "^8.4.1",
+        "path": "^0.12.7"
+    }
+}
