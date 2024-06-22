@@ -1,10 +1,15 @@
-const mongoose = require("mongoose");
-const config = require("config");
+import express from "express";
+import mongoose from "mongoose";
+import config from "config";
+
 const db = config.get("mongoURI");
 
 const connectDB = async () => {
     try {
-        mongoose.connect(db, {});
+        await mongoose.connect(db, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
 
         console.log("MongoDB Connected...");
     } catch (err) {
@@ -14,4 +19,4 @@ const connectDB = async () => {
     }
 };
 
-module.exports = connectDB;
+export default connectDB;

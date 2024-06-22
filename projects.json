@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        "project_id": 1,
         "project_name": "Plant Image Process Based On Computer Vision",
         "time_period": "Aug 2020 - Sep 2020",
         "stack": [],
@@ -10,7 +10,7 @@
         "my_duty": "Project Manager and Lead software engineer"
     },
     {
-        "id": 2,
+        "project_id": 2,
         "project_name": "Vanilla JS: QuickPic",
         "time_period": "Apr 2021 - Apr 2021",
         "stack": ["Vanilla JS"],
@@ -20,7 +20,7 @@
         "my_duty": "Front-end Developer"
     },
     {
-        "id": 3,
+        "project_id": 3,
         "project_name": "Scent Searcher",
         "time_period": "Jun 2021 - Aug 2021",
         "stack": ["react", "js", "java"],
@@ -30,7 +30,7 @@
         "my_duty": "Full Stack Developer"
     },
     {
-        "id": 4,
+        "project_id": 4,
         "project_name": "QUANTUM",
         "time_period": "Sep 2021 - Oct 2021",
         "stack": ["react", "ts", "java"],
@@ -40,7 +40,7 @@
         "my_duty": "Front-end Developer"
     },
     {
-        "id": 5,
+        "project_id": 5,
         "project_name": "Campbelltown Arts Centre",
         "time_period": "Jan 2022 - Feb 2022",
         "stack": ["js", "wp", "php"],
@@ -50,7 +50,7 @@
         "my_duty": "I developed the event filter function and a dynamic event carousal."
     },
     {
-        "id": 6,
+        "project_id": 6,
         "project_name": "Mundipharma eDetailers/ EDM",
         "time_period": "Dec 2021 - Dec 2022",
         "stack": ["js"],
@@ -60,37 +60,37 @@
         "my_duty": "I visualizing various kinds of figures, buttons, showcasing auto email launch function, integrating with Veeva Vault API, cleaning data, and using D3.js to create an Australian map."
     },
     {
-        "id": 7,
-        "project_name": "CAMURUS / Buvidal",
+        "project_id": 7,
+        "project_name": "CAMURUS / Buvproject_idal",
         "time_period": "Apr 2022 - Dec 2022",
         "stack": ["js", "wp", "php"],
         "description": "Websites for a pharmacy company.",
-        "website_link1": "https://camurus.com.au/opioiddependence/ & https://buvidal.com.au/",
+        "website_link1": "https://camurus.com.au/opioproject_iddependence/ & https://buvproject_idal.com.au/",
         "website_link2": "/",
         "my_duty": "Mailchimp API integration, Create multiple responsive pages, components; Test and debug; Staging, deployment of the site."
     },
     {
-        "id": 8,
+        "project_id": 8,
         "project_name": "Successful Ways",
         "time_period": "May 2022 - Nov 2022",
         "stack": ["js", "wp", "php"],
-        "description": "A real estate website provides a platform for mortgage brokers to connect with potential clients.",
+        "description": "A real estate website provproject_ides a platform for mortgage brokers to connect with potential clients.",
         "website_link1": "https://successfulways.com.au/",
         "website_link2": "/",
         "my_duty": "Using Adobe edit and design, update webpage and form functionalities; test and debug; staging, deployment."
     },
     {
-        "id": 9,
+        "project_id": 9,
         "project_name": "The Cwk",
         "time_period": "May 2022 - Jul 2022",
         "stack": ["js", "wp", "php"],
         "description": "An advertising services website.",
         "website_link1": "https://www.thecwk.com/",
         "website_link2": "/",
-        "my_duty": "I develop and deploy this advertising services website and make it showcase various auto-load videos and categories to highlight the company's services. It is visually appealing and user-friendly."
+        "my_duty": "I develop and deploy this advertising services website and make it showcase various auto-load vproject_ideos and categories to highlight the company's services. It is visually appealing and user-friendly."
     },
     {
-        "id": 10,
+        "project_id": 10,
         "project_name": "Geographic Atrophy (Apellis)",
         "time_period": "Aug 2022 - Sep 2022",
         "stack": ["js", "wp", "php"],
@@ -100,7 +100,7 @@
         "my_duty": "I developed the scroll animation function to illustrate how an eyeball has the 'Geographic atrophy' progression."
     },
     {
-        "id": 11,
+        "project_id": 11,
         "project_name": "Shout",
         "time_period": "Jun 2022 - Jul 2022",
         "stack": ["js", "wp", "php"],
@@ -110,7 +110,7 @@
         "my_duty": "I develop and deploy this application to assist meeting organizers with booking/editing/managing meetings."
     },
     {
-        "id": 12,
+        "project_id": 12,
         "project_name": "About Hep C",
         "time_period": "Nov 2022 - Nov 2022",
         "stack": ["react", "js"],
@@ -120,7 +120,7 @@
         "my_duty": "Full Stack Developer"
     },
     {
-        "id": 13,
+        "project_id": 13,
         "project_name": "Wax Intranet",
         "time_period": "Nov 2022 - Dec 2022",
         "stack": ["js", "wp", "php"],
@@ -130,7 +130,7 @@
         "my_duty": "I build features of task assignment, timeline management, client communication tracking, and filter options, and then deploy it."
     },
     {
-        "id": 14,
+        "project_id": 14,
         "project_name": "The Limbic",
         "time_period": "Feb 2022 - Dec 2022",
         "stack": ["js", "wp", "php", "sfmc", "Mailchimp"],
@@ -140,7 +140,7 @@
         "my_duty": "- Migrate all marketing-related functions from the old platform(Mailchimp) to Marketing Cloud platform(SFMC),- API integration ( Add, request, update, delete and synchronize Limbic users' various personal details, subscription status of primary/other specialties, interests, and webinar/campaign tags to set their needed newsletters in SFMC according to different user subscription behavior in the frontend website and admin behaviors in the backend system ),- Admin/edit Data Extention, Email and content on SFMC,- Creating multiple responsive modals,- Design and build new DB structures, and write SQL commands for development,- Write MySQL commands to export client required events data and CSV files,- Create a reddit-like comment section(wpDiscuz), - WP, Presspoint CRM setting and admin, - Test and debug; staging of the site."
     },
     {
-        "id": 15,
+        "project_id": 15,
         "project_name": "No_Code",
         "time_period": "May 2023 - Nov 2023",
         "stack": ["TS", "Angular"],
@@ -150,7 +150,7 @@
         "my_duty": "QA, Front-end developer"
     },
     {
-        "id": 15,
+        "project_id": 15,
         "project_name": "Tiptop-foodservice",
         "time_period": "May 2023 - Nov 2023",
         "stack": ["next.js,PostgreSQL", "MongoDB", "Keystone6", "js"],
@@ -160,7 +160,7 @@
         "my_duty": "Using Next.js frontend with Keystone6 CMS to build a responsive website for George Weston Foods Limited, showcasing various products with filters, components, and subscription modals. Migration of database from MongoDB to PostgreSQL, writing commands, managing policies and permissions for migration data in Amazon S3."
     },
     {
-        "id": 15,
+        "project_id": 15,
         "project_name": "BlueScope",
         "time_period": "July 2023 - Nov 2023",
         "stack": ["ddev", "PostgreSQL", "drupal", "php", "js", "docker"],
@@ -170,7 +170,7 @@
         "my_duty": "Upgrade the deprecated Drupal and various dependencies; build responsive webpages, components and functions for multiple websites under BlueScope Steel Limited."
     },
     {
-        "id": 15,
+        "project_id": 15,
         "project_name": "CXTX",
         "time_period": "Oct 2023 - Nov 2023",
         "stack": ["next.js", "Storyblok", "TS"],

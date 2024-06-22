@@ -1,3 +1,4 @@
 {
-    "mongoURI": "mongodb+srv://miyadong:w2AzXg4rQsilCFXE@cluster0.nmapp7c.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    "mongoURI": "mongodb+srv://miyadong:w2AzXg4rQsilCFXE@cluster0.nmapp7c.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+    "jwtSecret": "your_secret_key_here"
 }

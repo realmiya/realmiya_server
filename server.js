@@ -1,6 +1,6 @@
-const express = require("express");
-const connectDB = require("./config/db");
-const path = require("path");
+import express from "express";
+import connectDB from "./config/db.js";
+import path from "path";
 
 const app = express();
 
@@ -12,10 +12,17 @@ app.get("/", (req, res) => res.send("api running"));
 app.use(express.json());
 
 // Define Routes
-app.use("/api/projects", require("./routes/api/projects"));
-// app.use('/api/auth', require('./routes/api/auth'));
-// app.use('/api/profile', require('./routes/api/profile'));
-// app.use('/api/posts', require('./routes/api/posts'));
+import usersRoute from "./routes/api/users.js";
+import projectsRoute from "./routes/api/projects.js";
+import authRoute from "./routes/api/auth.js";
+import profileRoute from "./routes/api/profile.js";
+import postsRoute from "./routes/api/posts.js";
+
+app.use("/api/users", usersRoute);
+app.use("/api/projects", projectsRoute);
+app.use("/api/auth", authRoute);
+app.use("/api/profile", profileRoute);
+app.use("/api/posts", postsRoute);
 
 // // Serve static assets in production
 // if (process.env.NODE_ENV === 'production') {
