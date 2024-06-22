@@ -3,7 +3,7 @@ import config from "config";
 
 const authMiddleware = function (req, res, next) {
     // Get token from header
-    const token = req.header("x-auth-token");
+    const token = req.header("x-auth-token"); //postman里面设置keader的key为x-auth-token
 
     // Check if there is no token
     if (!token) {
