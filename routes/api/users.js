@@ -39,15 +39,13 @@ router.post(
             let user = await User.findOne({ email }); //if existing email address
 
             if (user) {
-                return res
-                    .status(400)
-                    .json({
-                        errors: [
-                            {
-                                msg: "User already exists and email address has registered",
-                            },
-                        ],
-                    });
+                return res.status(400).json({
+                    errors: [
+                        {
+                            msg: "User already exists and email address has registered",
+                        },
+                    ],
+                });
             }
 
             const avatar = normalizeUrl(
@@ -93,4 +91,16 @@ router.post(
         }
     }
 );
+
+// GET /api/users - Get all users
+router.get("/", async (req, res) => {
+    try {
+        const users = await User.find(); // Fetch all users
+        res.json(users); // Send users as JSON response
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send("Server Error");
+    }
+});
+
 export default router;

@@ -4,6 +4,10 @@ const { Schema, model } = mongoose;
 
 // Define the Project schema
 const ProjectSchema = new Schema({
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "user",
+    },
     id: {
         type: Number,
         required: true,
