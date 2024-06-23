@@ -9,6 +9,7 @@ import checkObjectId from "../../middleware/checkObjectId.js";
 import Profile from "../../models/Profile.js";
 import User from "../../models/User.js";
 import Post from "../../models/Post.js";
+import normalizeUrl from "normalize-url";
 
 const router = Router();
 
@@ -66,6 +67,7 @@ router.post(
             linkedin,
             facebook,
             // spread the rest of the fields we don't need to check
+            //maybe need to add company
             ...rest
         } = req.body;
 
@@ -74,7 +76,7 @@ router.post(
             user: req.user.id,
             website:
                 website && website !== ""
-                    ? normalize(website, { forceHttps: true })
+                    ? normalizeUrl(website, { forceHttps: true })
                     : "",
             skills: Array.isArray(skills)
                 ? skills
@@ -91,11 +93,11 @@ router.post(
             facebook,
         };
 
-        // normalize social fields to ensure valid url
+        // normalizeUrl social fields to ensure valid url
         for (const [key, value] of Object.entries(socialFields)) {
             if (value && value.length > 0)
-                socialFields[key] = normalize(value, { forceHttps: true });
-            // 以下是该函数可能执行的操作的一个示例normalize：
+                socialFields[key] = normalizeUrl(value, { forceHttps: true });
+            // 以下是该函数可能执行的操作的一个示例normalizeUrl：
             // 输入网址：http://example.com
             // 规范化 URL 为forceHttps: true：https://example.com
         }

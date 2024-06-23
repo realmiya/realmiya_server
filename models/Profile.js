@@ -19,7 +19,7 @@ const ProfileSchema = new Schema({
         required: true,
     },
     skills: {
-        type: [String],
+        type: [String], //这是array
         required: true,
     },
     bio: {
