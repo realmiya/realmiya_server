@@ -65,7 +65,7 @@ router.post(
 );
 
 // Get all projects
-// @route    GET api/project
+// @route    GET api/projects
 // @desc     Get all projects
 // @access   Public
 router.get("/", async (req, res) => {
@@ -99,6 +99,33 @@ router.get(
         }
     }
 );
+
+// @route    GET api/project/me  //me is current user
+// @desc     Get current user's project
+// @access   Private
+// one projects can belong to several developers
+router.get("/me", auth, async (req, res) => {
+    try {
+        const project = await Project.findOne({
+            user: req.user.id,
+            // 为什么你可以用req.user.id to access the ID of the currently authenticated user?
+            // 因为the auth middleware populates req.user with the user's information,查看middleware/auth.js
+            //  typically by verifying a JSON Web Token (JWT) sent with the request.
+        }); //这里的意思是用('user', ['name', 'avatar'])populate你get的response，aka当前用jwt里面解析出来的current user
+        // Selects Specific Fields: Only the name and avatar fields from the User document are included in the final result. Other fields like email or password are excluded.
+        // 这个设置就这样，还记得那个死胖子的头像出来了吗
+        if (!project) {
+            return res
+                .status(400)
+                .json({ msg: "There is no project for this user" });
+        }
+
+        res.json(project); //把拿到的project发给res的意思
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send("Server Error");
+    }
+});
 
 // Update a project by ID using const updates = req.body;
 router.put("/:project_id", async (req, res) => {

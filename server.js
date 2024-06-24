@@ -19,7 +19,7 @@ import profileRoute from "./routes/api/profile.js";
 import postsRoute from "./routes/api/posts.js";
 
 app.use("/api/users", usersRoute);
-app.use("/api/projects", projectsRoute);
+// app.use("/api/projects", projectsRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/profile", profileRoute);
 app.use("/api/posts", postsRoute);

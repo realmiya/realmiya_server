@@ -10,6 +10,7 @@ import Profile from "../../models/Profile.js";
 import User from "../../models/User.js";
 import Post from "../../models/Post.js";
 import normalizeUrl from "normalize-url";
+import moment from "moment";
 
 const router = Router();
 
@@ -181,32 +182,39 @@ router.delete("/", auth, async (req, res) => {
         res.status(500).send("Server Error");
     }
 });
+// Function to compare dates and render the result as a string
+function compareDates(date1, date2) {
+    const fromDate = moment(date1, "YYYY-MM-DD", true);
+    const toDate = moment(date2, "YYYY-MM-DD", true);
+    const isBefore = fromDate.isBefore(toDate);
+    return isBefore;
+}
 
 // @route    PUT api/profile/experience
 // @desc     Add profile experience
+//所以add是可以用post和put的
 // @access   Private
 router.put(
     "/experience",
     auth,
-    check("title", "Title is required").notEmpty(),
+    check("jobTitle", "Job Title is required").notEmpty(),
     check("employer", "Employer is required").notEmpty(),
     check("from", "From date is required and needs to be from the past")
         .notEmpty()
-        .custom((value, { req }) => (req.body.to ? value < req.body.to : true)), //If req.body.to exists (req.body.to is truthy), the validation checks if value is less than req.body.to. This ensures that the from value is less than the to value.
+        .custom((value, { req }) =>
+            req.body.to ? compareDates(value, req.body.to) : true
+        ), //If req.body.to exists (req.body.to is truthy), the validation checks if value is less than req.body.to. This ensures that the from value is less than the to value.
     //The .custom() validator method in express-validator allows you to define custom validation logic for a specific field in a request body.
+    //from 和to的大小关系要检查
     async (req, res) => {
-        const errors = validationResult(req); //用 validationResult check那些条目
+        const errors = validationResult(req); //用validationResult check那些条目
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
         }
-
         try {
             const profile = await Profile.findOne({ user: req.user.id });
-
-            profile.experience.unshift(req.body); //unshift recent experience
-
+            profile.experience.unshift(req.body); //unshift the most recent experience
             await profile.save();
-
             res.json(profile);
         } catch (err) {
             console.error(err.message);
@@ -218,13 +226,81 @@ router.put(
 // @route    DELETE api/profile/experience/:exp_id
 // @desc     Delete experience from profile
 // @access   Private
-
 router.delete("/experience/:exp_id", auth, async (req, res) => {
     try {
         const foundProfile = await Profile.findOne({ user: req.user.id });
 
         foundProfile.experience = foundProfile.experience.filter(
             (exp) => exp._id.toString() !== req.params.exp_id
+        );
+
+        await foundProfile.save();
+        return res.status(200).json(foundProfile);
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ msg: "Server error" });
+    }
+});
+
+// @route    update api/profile/project/updateProjectsBatch
+// @desc     replace the whole projects with a batch of projects of the current user's profile
+// @access   Private
+
+router.put("/project/updateProjectsBatch", auth, async (req, res) => {
+    try {
+        // const { userId, projects } = req.body;
+
+        const foundProfile = await Profile.findOne({ user: req.user.id });
+        if (!foundProfile) {
+            return res.status(404).json({ msg: "Profile not found" });
+        }
+
+        // Replace the projects array with the new one
+        foundProfile.project = req.body.projects;
+
+        await foundProfile.save();
+        res.json(foundProfile);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send("Server Error");
+    }
+});
+
+// @route    PUT api/profile/project
+// @desc     Add profile one project
+//所以add是可以用post和put的
+// @access   Private
+router.put(
+    "/project",
+    auth,
+    check("project_name", "project name is required").notEmpty(),
+    async (req, res) => {
+        const errors = validationResult(req); //用validationResult check那些条目
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+        try {
+            const foundProfile = await Profile.findOne({ user: req.user.id });
+            foundProfile.project.push(req.body); //push the most recent project
+            await foundProfile.save();
+            res.json(foundProfile);
+        } catch (err) {
+            console.error(err.message);
+            res.status(500).send("Server Error");
+        }
+    }
+);
+
+// @route    DELETE api/profile/project/:proj_id
+// @desc     Delete project from profile
+// @access   Private
+router.delete("/project/:proj_id", auth, async (req, res) => {
+    //在这个引号里面你不用写profile，因为这一本的代码都是写在profile里面，
+    try {
+        const foundProfile = await Profile.findOne({ user: req.user.id });
+
+        foundProfile.project = foundProfile.project.filter(
+            (proj) => proj._id.toString() !== req.params.proj_id
         );
 
         await foundProfile.save();

@@ -30,13 +30,19 @@ const ProfileSchema = new Schema({
     },
     experience: [
         {
-            title: {
+            employer: {
                 type: String,
                 required: true,
             },
-            company: {
+            jobTitle: {
                 type: String,
                 required: true,
+            },
+            jobDuty: {
+                type: [String],
+            },
+            period: {
+                type: String,
             },
             location: {
                 type: String,
@@ -52,8 +58,37 @@ const ProfileSchema = new Schema({
                 type: Boolean,
                 default: false,
             },
+        },
+    ],
+    project: [
+        {
+            project_name: {
+                type: String,
+                required: true,
+            },
+            time_period: {
+                type: String,
+                required: true,
+            },
+            stack: {
+                type: [String], // Specify that stack should be an array of strings
+            },
             description: {
                 type: String,
+                required: true,
+            },
+            website_link1: {
+                type: String,
+            },
+            website_link2: {
+                type: String,
+            },
+            my_duty: {
+                type: [String], // Specify that my_duty should be an array of strings
+            },
+            current: {
+                type: Boolean,
+                default: false,
             },
         },
     ],
@@ -83,7 +118,7 @@ const ProfileSchema = new Schema({
                 default: false,
             },
             description: {
-                type: String,
+                type: [String],
             },
         },
     ],

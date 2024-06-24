@@ -13,7 +13,6 @@ import User from "../../models/User.js";
 import normalizeUrl from "normalize-url";
 import jwt from "jsonwebtoken";
 
-//这个文件都在搞user注册
 // @route    POST api/users
 // @desc     Register user下面一波post是在用户注册的时候用的，和用户登陆不一样,此处是注册，用post，用check，如果是登陆用的是jwt.sign()
 // @access   Public
@@ -34,7 +33,6 @@ router.post(
         }
 
         const { name, email, password } = req.body;
-
         try {
             let user = await User.findOne({ email }); //if existing email address
 
@@ -47,7 +45,6 @@ router.post(
                     ],
                 });
             }
-
             const avatar = normalizeUrl(
                 gravatar.url(email, {
                     s: "200",
@@ -56,7 +53,6 @@ router.post(
                 }),
                 { forceHttps: true }
             );
-
             user = new User({
                 name,
                 email,
