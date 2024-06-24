@@ -29,3 +29,4 @@ const authMiddleware = function (req, res, next) {
 };
 
 export default authMiddleware;
+//有了这个文件在postman上，send req才能从header里面包含的x-auth-token里面解析出user。id
