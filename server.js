@@ -3,7 +3,6 @@ import connectDB from "./config/db.js";
 import path from "path";
 
 const app = express();
-
 // Connect Database
 connectDB();
 // app.get("/", (req, res) => res.send("api running"));
