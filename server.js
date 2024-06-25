@@ -13,17 +13,17 @@ app.use(express.json());
 
 // Define Routes
 import usersRoute from "./routes/api/users.js";
-import projectsRoute from "./routes/api/projects.js";
+// import projectsRoute from "./routes/api/projects.js";
 import authRoute from "./routes/api/auth.js";
-import profileRoute from "./routes/api/profile.js";
+import profileRoute from "./routes/api/profiles.js";
 import postsRoute from "./routes/api/posts.js";
 
 app.use("/api/users", usersRoute);
 // app.use("/api/projects", projectsRoute);
 app.use("/api/auth", authRoute);
-app.use("/api/profile", profileRoute);
+app.use("/api/profiles", profileRoute);
 app.use("/api/posts", postsRoute);
-
+// api url怎么设置的，就是在这个use的括号里面设置的
 // // Serve static assets in production
 // if (process.env.NODE_ENV === 'production') {
 //   // Set static folder

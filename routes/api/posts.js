@@ -22,7 +22,7 @@ router.post(
 
         try {
             const user = await User.findById(req.user.id).select("-password");
-
+            //.select("-password")的意思是不会send back password
             const newPost = new Post({
                 text: req.body.text,
                 name: user.name,
