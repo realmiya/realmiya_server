@@ -5,7 +5,7 @@ import path from "path";
 const app = express();
 // Connect Database
 connectDB();
-// app.get("/", (req, res) => res.send("api running"));
+app.get("/", (req, res) => res.send("api running"));
 
 // Init Middleware
 app.use(express.json());
